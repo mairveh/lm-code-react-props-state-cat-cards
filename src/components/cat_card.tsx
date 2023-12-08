@@ -1,9 +1,9 @@
 const CatCard: React.FC = () => (
   <div className="card">
-    <h3 className="card__text car__header">Mr Gwumpy</h3>a
+    <h3 className="card__text car__header">Mr Gwumpy</h3>
     <p className="card__text">Species: Cat</p>
-    <p className="card__text">Favourite Food: </p>
-    <p className="card__text">Birth Year: </p>
+    <p className="card__text">Favourite Food: Caviar</p>
+    <p className="card__text">Birth Year: 1984</p>
   </div>
 );
 
