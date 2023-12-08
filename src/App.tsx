@@ -82,7 +82,7 @@ function App(): JSX.Element {
     },
   ]);
 
-  console.log("Our pretties 😻: ", cats)
+  console.log("Our pretties 😻: ", cats);
 
   return (
     <>
@@ -91,8 +91,10 @@ function App(): JSX.Element {
 
       <main>
         <div className="cards__wrapper">
-				{cats.map(cat => <CatCard/>)}
-		</div>
+          {cats.map((cat) => {
+            return <CatCard catObject={cat} />;
+          })}
+        </div>
       </main>
 
       <Footer />
