@@ -5,6 +5,7 @@ import Footer from "./components/footer";
 import { useState } from "react";
 import Cat from "./data/cat";
 import CatCard from "./components/cat_card";
+import CatImage from "./components/cat_image";
 
 function App(): JSX.Element {
   const [cats, setCats] = useState<Array<Cat>>([
@@ -91,13 +92,15 @@ function App(): JSX.Element {
 
       <main>
         <div className="cards__wrapper">
-          {cats.map((cat) => (
+          {cats.map((cat, index) => (
             <CatCard
               name={cat.name}
               species={cat.species}
               favFoods={cat.favFoods}
               birthYear={cat.birthYear}
+			  catIndex = {index}
             />
+
           ))}
         </div>
       </main>
