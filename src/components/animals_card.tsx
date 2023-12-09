@@ -131,7 +131,7 @@ const AnimalsCard: React.FC<CardProps> = ({
   <div className="card">
     <h3 className="card__text car__header">{name}</h3>
     <p className="card__text">Species: {species}</p>
-    <p className="card__text">Favourite Food: {favFoods}</p>
+    <p className="card__text">Favourite Food: {favFoods.reduce((acc,curr) => acc+" "+curr, "")}</p>
     <p className="card__text">Birth Year: {birthYear}</p>
 
     {type==='cat' && index < catImages.length && (
