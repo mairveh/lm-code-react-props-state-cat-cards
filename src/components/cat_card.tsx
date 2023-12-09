@@ -1,4 +1,3 @@
-import Cat from "../data/cat";
 import CatImage from "./cat_image";
 import cat1 from "../assets/images/cat1.jpg";
 import cat2 from "../assets/images/cat2.jpg";
