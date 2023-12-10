@@ -4,11 +4,11 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import { useState } from "react";
 import Cat from "./data/cat";
-import CatCard from "./components/animals_card";
+import CatCard from "./components/pets-card";
 import CatImage from "./components/cat_image";
 import catData from "./data/cat-data";
 import dogData from "./data/dog-data";
-import AnimalsCard from "./components/animals_card";
+import AnimalsCard from "./components/pets-card";
 import Dog from "./data/dog";
 import PetsForm from "./components/pets_form";
 
