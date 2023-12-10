@@ -10,10 +10,12 @@ import catData from "./data/cat-data";
 import dogData from "./data/dog-data";
 import AnimalsCard from "./components/animals_card";
 import Dog from "./data/dog";
+import PetsForm from "./components/pets_form";
 
 function App(): JSX.Element {
   const [cats, setCats] = useState<Array<Cat>>(catData);
   const [dogs, setDogs] = useState<Array<Dog>>(dogData);
+  const [textInput, setTextInput] = useState<string>("");
 
   return (
     <>
@@ -30,11 +32,11 @@ function App(): JSX.Element {
               favFoods={cat.favFoods}
               birthYear={cat.birthYear}
               index={index}
-			  type='cat'
+              type="cat"
             />
           ))}
         </div>
-		<div className="cards__wrapper">
+        <div className="cards__wrapper">
           {dogs.map((dog, index) => (
             <AnimalsCard
               key={dog.id}
@@ -43,12 +45,13 @@ function App(): JSX.Element {
               favFoods={dog.favFoods}
               birthYear={dog.birthYear}
               index={index}
-			  type='dog'
+              type="dog"
             />
           ))}
         </div>
       </main>
 
+      <PetsForm />
       <Footer />
     </>
   );
