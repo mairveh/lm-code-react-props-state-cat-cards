@@ -1,8 +1,7 @@
 import { useState } from "react";
 import catData from "../data/cat-data";
 import dogData from "../data/dog-data";
-import Cat from "../data/cat";
-import Dog from "../data/dog";
+import Pet from "../data/pet";
 
 const PetsForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -15,19 +14,21 @@ const PetsForm: React.FC = () => {
 
   const handleSubmit = () => {
     if (formData.type === "cat") {
-      const newCat: Cat = {
+      const newCat: Pet = {
         name: formData.name,
         species: formData.species,
         favFoods: formData.favFoods.split(" "),
         birthYear: Number(formData.birthYear),
+        type: "CAT"
       };
       [...catData].push(newCat);
     } else if (formData.type === "dog") {
-      const newDog: Dog = {
+      const newDog: Pet = {
         name: formData.name,
         species: formData.species,
         favFoods: formData.favFoods.split(" "),
         birthYear: Number(formData.birthYear),
+        type: "DOG"
       };
       [...dogData].push(newDog);
     }
@@ -91,7 +92,11 @@ const PetsForm: React.FC = () => {
         <option value="cat">Cat</option>
         <option value="dog">Dog</option>
       </select>
-      <button name="formbutton" type="button" onSubmit={(event) => handleSubmit()}>
+      <button
+        name="formbutton"
+        type="button"
+        onSubmit={(event) => handleSubmit()}
+      >
         Submit
       </button>
     </form>

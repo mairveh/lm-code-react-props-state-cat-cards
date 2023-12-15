@@ -7,7 +7,7 @@ const Header: React.FC<HeaderProps> = ({numberOfCats, numberOfDogs}) => (
 	<header className='header__container'>
 		<h1 className='header__title header__welcome'>Welcome to React!</h1>
 		<h2 className='header__title'>
-			There are currently {numberOfCats} Cats and {numberOfDogs} Dogs in this App
+			There are currently {numberOfCats} cats and {numberOfDogs} dogs in this App
 		</h2>
 	</header>
 );
