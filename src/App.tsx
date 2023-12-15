@@ -8,22 +8,25 @@ import PetCard from "./components/pets-card";
 import CatImage from "./components/cat_image";
 import catData from "./data/cat-data";
 import dogData from "./data/dog-data";
-import AnimalsCard from "./components/pets-card";
+import PetsCard from "./components/pets-card";
 import PetsForm from "./components/pets_form";
 
 function App(): JSX.Element {
   const [pets, setPets] = useState<Array<Pet>>([...catData, ...dogData]);
-  const [textInput, setTextInput] = useState<string>("");
+  const addPet = (newPet: Pet) => setPets([...pets, newPet]);
 
   return (
     <>
       <Navbar />
-      <Header numberOfCats={pets.filter(p => p.type === "CAT").length} numberOfDogs={pets.filter(p => p.type === "DOG").length}  />
+      <Header
+        numberOfCats={pets.filter((p) => p.type === "CAT").length}
+        numberOfDogs={pets.filter((p) => p.type === "DOG").length}
+      />
       <main>
         <div className="cards__wrapper">
           {pets.map((pet, index) => (
-            <AnimalsCard
-              key={pet.id}
+            <PetsCard
+              id={pet.id}
               name={pet.name}
               species={pet.species}
               favFoods={pet.favFoods}
@@ -35,7 +38,7 @@ function App(): JSX.Element {
         </div>
       </main>
 
-      <PetsForm />
+      <PetsForm addPet={addPet} />
       <Footer />
     </>
   );

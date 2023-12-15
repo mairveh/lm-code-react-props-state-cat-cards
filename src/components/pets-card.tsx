@@ -112,6 +112,7 @@ const catImages = [
 ];
 
 interface CardProps {
+  id: string | undefined;
   name: string;
   species: string;
   favFoods: Array<string>;
@@ -120,7 +121,8 @@ interface CardProps {
   type: string;
 }
 
-const AnimalsCard: React.FC<CardProps> = ({
+const PetsCard: React.FC<CardProps> = ({
+  id,
   name,
   species,
   favFoods,
@@ -128,13 +130,15 @@ const AnimalsCard: React.FC<CardProps> = ({
   index,
   type,
 }) => (
-  <div className="card">
+  <div className="card" key={id}>
     <h3 className="card__text car__header">{name}</h3>
     <p className="card__text">Species: {species}</p>
-    <p className="card__text">Favourite Food: {favFoods.reduce((acc,curr) => acc+" "+curr, "")}</p>
+    <p className="card__text">
+      Favourite Food: {favFoods.reduce((acc, curr) => acc + " " + curr, "")}
+    </p>
     <p className="card__text">Birth Year: {birthYear}</p>
 
-    {type==='cat' && index < catImages.length && (
+    {type === "cat" && index < catImages.length && (
       <CatImage
         image={catImages[index].image}
         altText={catImages[index].altText}
@@ -147,4 +151,4 @@ const AnimalsCard: React.FC<CardProps> = ({
   </div>
 );
 
-export default AnimalsCard;
+export default PetsCard;

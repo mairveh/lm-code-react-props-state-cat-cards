@@ -1,9 +1,11 @@
 import { useState } from "react";
-import catData from "../data/cat-data";
-import dogData from "../data/dog-data";
 import Pet from "../data/pet";
 
-const PetsForm: React.FC = () => {
+interface PetsFormProps {
+  addPet: (newPet: Pet) => void;
+}
+
+const PetsForm: React.FC<PetsFormProps> = ({addPet}) => {
   const [formData, setFormData] = useState({
     name: "",
     species: "",
@@ -12,26 +14,29 @@ const PetsForm: React.FC = () => {
     type: "",
   });
 
-  const handleSubmit = () => {
-    if (formData.type === "cat") {
+  const handleClick = () => {
+    if (formData.type === "CAT") {
       const newCat: Pet = {
         name: formData.name,
         species: formData.species,
         favFoods: formData.favFoods.split(" "),
         birthYear: Number(formData.birthYear),
-        type: "CAT"
+        type: "CAT",
       };
-      [...catData].push(newCat);
-    } else if (formData.type === "dog") {
+      console.log(newCat)
+      addPet(newCat);
+    } else if (formData.type === "DOG") {
       const newDog: Pet = {
         name: formData.name,
         species: formData.species,
         favFoods: formData.favFoods.split(" "),
         birthYear: Number(formData.birthYear),
-        type: "DOG"
+        type: "DOG",
       };
-      [...dogData].push(newDog);
+      console.log(newDog)
+      addPet(newDog);
     }
+    console.log(formData)
     setFormData({ ...formData });
   };
 
@@ -87,15 +92,15 @@ const PetsForm: React.FC = () => {
         ></input>
       </label>
       <br />
-      <select name="pettypeselect">
+      <select name="pettypeselect" onChange={(event) => setFormData({ ...formData, type: event.target.value })}>
         <option>Choose the pet type</option>
-        <option value="cat">Cat</option>
-        <option value="dog">Dog</option>
+        <option value="CAT">Cat</option>
+        <option value="DOG">Dog</option>
       </select>
       <button
         name="formbutton"
         type="button"
-        onSubmit={(event) => handleSubmit()}
+        onClick={(event) => handleClick()}
       >
         Submit
       </button>
